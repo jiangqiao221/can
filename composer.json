@@ -1,0 +1,20 @@
+{
+  "name": "jiangqiao221/can",
+  "description": "just do what you want to do",
+  "type": "project",
+  "license": "MIT",
+  "homepage": "https://github.com/jiangqiao221/can",
+  "authors": [
+    {
+      "name": "jiangqiao221"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "can\\": "core/",
+      "app\\": "app/"
+    }
+  }
+}
