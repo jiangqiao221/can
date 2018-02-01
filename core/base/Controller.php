@@ -14,7 +14,7 @@ class Controller
 
     public function getView()
     {
-        if ($this->_view === null) {
+        if ($this->_view === null || !($this->_view instanceof View)) {
             $this->_view = new View();
         }
         return $this->_view;

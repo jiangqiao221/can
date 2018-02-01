@@ -9,6 +9,10 @@ class IndexController extends Controller
 {
     public function actionIndex()
     {
-        return $this->render('index', ['version' => Start::$app->version]);
+        $db = Start::$app->db;
+        $sql = "SHOW TABLE STATUS";
+        $tables = $db->query($sql);
+        $count = count($tables);
+        return $this->render('index', ['tables' => $tables, 'count' => $count]);
     }
 }

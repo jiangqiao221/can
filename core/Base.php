@@ -3,6 +3,7 @@
 namespace can;
 
 use can\base\Bootstrap;
+use can\base\Db;
 use can\exceptions\UnknownPropertyException;
 
 class Base
@@ -11,10 +12,19 @@ class Base
 
     public static $app;
 
-    public function __construct()
+    /**
+     * @var \can\db\Connection
+     */
+    public $db;
+
+    public function __construct($config)
     {
         if (self::$app === null || !(self::$app instanceof self)) {
             self::$app = $this;
+        }
+
+        if (isset($config['db']) && !empty($config['db'])) {
+            $this->db = Db::connect($config['db']);
         }
     }
 
